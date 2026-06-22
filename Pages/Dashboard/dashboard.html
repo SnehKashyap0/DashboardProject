@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <div class="heading">
+        <div class="menu"><i class="fa-solid fa-bars"></i></div>
+
+        <div class="sidebar">
+          <ul>
+            <li class="home-link">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </li>
+
+            <li class="profile-link">
+              <i class="fa-solid fa-user"></i>
+              Profile
+            </li>
+
+            <li class="settings-link">
+              <i class="fa-solid fa-gear"></i>
+              Settings
+            </li>
+
+            <li class="help-link">
+              <i class="fa-solid fa-circle-question"></i>
+              Help
+            </li>
+            <li class="contact-us"><i class="fa-solid fa-at"></i>Contact Us</li>
+          </ul>
+        </div>
+
+        <h3>Dashboard</h3>
+      </div>
+      <div class="profile">
+        <div class="profile-card-popup">
+          <p id="popupUsername"></p>
+          <div class="popup-option">My Profile</div>
+          <div class="popup-option">Settings</div>
+          <div class="popup-option" id="popup-logout">Logout</div>
+        </div>
+        <div class="profile-pic">
+          <img
+            src="/assets/images/Blank Profile Picture.png"
+            alt="Profile Picture"
+          />
+        </div>
+        <div class="Profile-name"></div>
+        <!-- <div class="signout-btn">
+          <button class="signout-btn">Sign Out</button>
+        </div> -->
+      </div>
+    </nav>
+    <main>
+      <div class="profile-card">
+        <div class="avatar" id="avatarimg">
+          <img src="/assets/images/Blank Profile Picture.png" alt="pp" />
+        </div>
+        <div class="user-name" id="displayName"></div>
+        <div class="user-handle" id="displayHandle"></div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <div class="field-label">Full Name</div>
+          <div class="field-value" id="fieldName"></div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">Username</div>
+          <div class="field-value" id="fieldUsername"></div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">Email Address</div>
+          <div class="field-value" id="fieldEmail"></div>
+        </div>
+
+        <button class="edit-btn">Edit Profile</button>
+        <div class="delete-btn">Delete Profile</div>
+      </div>
+    </main>
+  </body>
+  <script src="dashboard.js"></script>
+</html>

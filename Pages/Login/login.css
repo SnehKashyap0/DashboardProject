@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  padding: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  height: 650px;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formSection {
+  width: 50%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: center;
+  color: #be29ec;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.loginForm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.usernameField,
+.passwordField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#username,
+#password {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordField input {
+  width: 100%;
+}
+
+#eyeIcon {
+  position: absolute;
+  right: 12px;
+  top: 65%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#eyeIcon.moveUp {
+  transform: translateY(-20px);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.signinBtn {
+  margin-top: 10px;
+}
+
+.signinBtn button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 8px;
+  background: #be29ec;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signinBtn button:hover {
+  opacity: 0.9;
+}
+
+.signUpTxt {
+  text-align: center;
+}
+
+a {
+  color: #be29ec;
+  text-decoration: none;
+}
+
+.imgSection {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.imgSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+h3 {
+  display: flex;
+  white-space: nowrap;
+  text-align: center;
+}
+.welcomeBack {
+  position: absolute;
+  top: 50px;
+  color: white;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .formSection {
+    padding: 25px;
+    width: 100%;
+  }
+  .imgSection {
+    width: 100%;
+    object-fit: cover;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+  }
+  .imgSection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .welcomeBack {
+    position: absolute;
+    top: 60px;
+  }
+  .imgSection h3 {
+    text-align: center;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .welcomeBack {
+    font-size: 1.5rem;
+  }
+
+  #username,
+  #password,
+  .signinBtn button {
+    height: 42px;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .formSection {
+    padding: 25px;
+    width: 100%;
+  }
+  .imgSection {
+    width: 100%;
+    object-fit: cover;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .imgSection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .welcomeBack {
+    position: absolute;
+    top: 60px;
+  }
+  .imgSection h3 {
+    text-align: center;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .welcomeBack {
+    font-size: 1.5rem;
+  }
+
+  #username,
+  #password,
+  .signinBtn button {
+    height: 42px;
+  }
+}

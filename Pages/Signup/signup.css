@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  padding: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  height: 650px;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formSection {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: center;
+  color: #be29ec;
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.loginForm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.usernameField,
+.passwordField,
+.emailField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#username,
+#password,
+#fullname,
+#email,
+#confirmPassword {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordField input {
+  width: 100%;
+}
+
+#eyeIcon1,
+#eyeIcon2 {
+  position: absolute;
+  right: 12px;
+  top: 65%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#eyeIcon1.moveUp {
+  transform: translateY(-20px);
+}
+#eyeIcon2.moveUp {
+  transform: translateY(-20px);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.signUpBtn {
+  margin-top: 10px;
+}
+
+.signUpBtn button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 8px;
+  background: #be29ec;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signUpBtn button:hover {
+  opacity: 0.9;
+}
+
+.signInTxt {
+  text-align: center;
+}
+
+a {
+  color: #be29ec;
+  text-decoration: none;
+}
+
+.imgSection {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+
+  justify-content: center;
+}
+
+.imgSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.createAccount {
+  position: absolute;
+  top: 50px;
+  color: white;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  z-index: 10;
+}
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .formSection {
+    padding: 25px;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .imgSection {
+    width: 100%;
+    object-fit: cover;
+    height: 30%;
+    position: relative;
+  }
+  .imgSection img {
+    height: 100%;
+  }
+  .createAccount {
+    position: absolute;
+    top: 10px;
+  }
+  .imgSection h3 {
+    text-align: center;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .createAccount {
+    font-size: 1.5rem;
+  }
+  .mobile-break {
+    display: none;
+  }
+
+  #username,
+  #password,
+  .signinBtn button {
+    height: 42px;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .formSection {
+    padding: 25px;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .imgSection {
+    width: 100%;
+    object-fit: cover;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  .imgSection img {
+    height: 100%;
+  }
+  .createAccount {
+    position: absolute;
+    top: 60px;
+  }
+
+  .imgSection h3 {
+    text-align: center;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .createAccount {
+    font-size: 1.5rem;
+  }
+
+  #username,
+  #password,
+  .signinBtn button {
+    height: 42px;
+  }
+}
+@media (max-width: 420px) {
+  .imgSection {
+    height: 25%;
+    position: relative;
+  }
+  .createAccount {
+    position: absolute;
+    display: inline-block;
+    top: 55px;
+  }
+  .createAccount h3 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+}

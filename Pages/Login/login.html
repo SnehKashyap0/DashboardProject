@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div  class="container">
+      <section class="formSection">
+        <div class="heading">Login</div>
+        <div class="loginForm">
+          <form action="/submit" novalidate>
+            <div class="usernameField">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+              <div class="errname"></div>
+            </div>
+            <div class="passwordField">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required /><i
+                class="fa-solid fa-eye"
+                id="eyeIcon"
+                class="moveUp"
+              ></i>
+              <div class="errpassword"></div>
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" name="remeberMe" id="rememberMe" />
+              <label for="rememberMe">Remember Me</label>
+            </div>
+            <div class="signinBtn">
+              <button id="btn" type="submit">Sign In</button>
+            </div>
+            <div class="signUpTxt">
+              <p class="signUpTxt">
+                Don't have an account ?
+                <a href="/Pages/Signup/signup.html">Click Here</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="imgSection">
+        <img src="/assets/images/Message Background.webp" alt="" />
+        <div class="welcomeBack">
+          <h3>Welcome Back</h3>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="login.js"></script>
+</html>

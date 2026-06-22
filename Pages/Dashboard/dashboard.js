@@ -9,7 +9,9 @@ let signoutBtn = document.querySelector(".signout-btn");
 let editBtn = document.querySelector(".edit-btn");
 let deletBtn = document.querySelector(".delete-btn");
 
-let popupCard = document.querySelector(".profile-card-popup");
+let dropdownMenu = document.querySelector(".dropdown-menu");
+let dropdownContent = document.querySelector(".dropdown-content");
+
 let profilePic = document.querySelector(".profile-pic");
 let popupLogout = document.querySelector("#popup-logout");
 
@@ -110,13 +112,13 @@ overlay.addEventListener("click", () => {
 });
 
 // Popup Click Actions
-profilePic.addEventListener("click", () => {
-  popupCard.classList.toggle("active");
-  overlay.classList.toggle("active")
+dropdownMenu.addEventListener("click", () => {
+  dropdownContent.classList.toggle("active");
+  overlay.classList.toggle("active");
 });
 //Overlay Action
 overlay.addEventListener("click", () => {
-  popupCard.classList.remove("active");
+  dropdownContent.classList.remove("active");
   overlay.classList.remove("active");
 });
 popupLogout.addEventListener("click", () => {

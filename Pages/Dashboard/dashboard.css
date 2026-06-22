@@ -9,6 +9,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -69,7 +70,7 @@ body {
   position: fixed;
   left: -300px;
   top: 70px;
-  width: 260px;
+  width: min(260px, 80vw);
   height: calc(100vh - 70px);
   background: linear-gradient(180deg, #8a2be2, #be29ec);
   transition: left 0.4s ease;
@@ -116,28 +117,25 @@ body {
   font-size: 1.1rem;
 }
 .Profile-name {
-  display: inline-block;
-  padding: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #604eb7;
-  background: rgba(96, 78, 183, 0.1);
-  border: 2px solid #604eb7;
-  border-radius: 12px;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 12px rgba(96, 78, 183, 0.1);
-  transition: all 0.3s ease;
-}
-
-.Profile-name:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(96, 78, 183, 0.1);
 }
 
 .profile {
   position: relative;
 }
+.dropdown-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.dropdown-menu i {
+  color: #604eb7;
+}
 
-.profile-card-popup {
+.dropdown-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +145,7 @@ body {
   top: 55px;
   right: 0;
 
-  width: 180px;
+  width: min(180px, 90vw);
   padding: 16px;
 
   background: linear-gradient(180deg, #ffffff, #fff7ff);
@@ -166,7 +164,7 @@ body {
   z-index: 1001;
 }
 
-.profile-card-popup.active {
+.dropdown-content.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -355,20 +353,43 @@ main {
   .user-name {
     font-size: 1rem;
   }
-}
 
+  .field-value {
+    word-break: break-word;
+  }
+}
 @media (max-width: 400px) {
-  .heading h3 {
-    font-size: 1.2rem;
+  .navbar {
+    padding: 8px 12px;
   }
 
-  .signout-btn button {
-    font-size: 13px;
-    padding: 0 12px;
+  .heading {
+    gap: 8px;
+  }
+
+  .heading h3 {
+    font-size: 1.1rem;
+  }
+
+  .profile {
+    gap: 4px;
+  }
+
+  .profile-pic img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .Profile-name {
+    font-size: 0.85rem;
+  }
+
+  .dropdown-content {
+    right: -10px;
   }
 
   .profile-card {
-    padding: 24px 16px 18px;
+    padding: 20px 14px;
   }
 
   .field-label {
@@ -378,13 +399,15 @@ main {
   .field-value {
     font-size: 13px;
     min-height: 40px;
+    padding: 8px 10px;
   }
 
   .edit-btn {
     font-size: 14px;
     height: 40px;
   }
-  .Profile-name {
-    display: none;
+
+  .delete-btn {
+    width: 60%;
   }
 }

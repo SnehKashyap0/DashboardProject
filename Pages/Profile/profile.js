@@ -19,6 +19,7 @@ let popupLogout = document.querySelector("#popup-logout"); // Logout option in d
 let menu = document.querySelector(".menu"); // Hamburger icon
 let sidebar = document.querySelector(".sidebar"); // Slide-in sidebar panel
 let overlay = document.querySelector(".overlay"); // Dark background overlay
+let home = document.querySelector(".home-link"); // Open Dashboard Home
 
 // =============================================
 // LOAD CURRENT USER FROM LOCAL STORAGE
@@ -144,6 +145,14 @@ overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
 });
+// =============================================
+// SIDEBAR OPTIONS
+// =============================================
+
+home.addEventListener("click",()=>{
+  window.location.href = "/Pages/Dashboard Home/dashboard-home.html"
+})
+
 
 // =============================================
 // PROFILE DROPDOWN

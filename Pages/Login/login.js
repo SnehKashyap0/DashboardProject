@@ -87,7 +87,7 @@ button.addEventListener("click", () => {
       } else {
         localStorage.setItem("currentUser", JSON.stringify(userByUsername));
 
-        window.location.href = "/Pages/Dashboard/dashboard.html";
+        window.location.href = "/Pages/Profile/profile.html";
       }
     }
   } else {

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard-home.css" />
+    <title>Dashboard - Home</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <!-- MAIN WRAPPER -->
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <ul>
+          <li class="home-link active">
+            <i class="fa-solid fa-house"></i> Home
+          </li>
+          <li class="analytics-link">
+            <i class="fa-solid fa-chart-bar"></i> Analytics
+          </li>
+          <li class="users-link"><i class="fa-solid fa-users"></i> Users</li>
+          <li class="reports-link">
+            <i class="fa-solid fa-file-lines"></i> Reports
+          </li>
+          <li class="divider-item"></li>
+          <li class="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+          <li class="settings-link">
+            <i class="fa-solid fa-gear"></i> Settings
+          </li>
+          <li class="help-link">
+            <i class="fa-solid fa-circle-question"></i> Help
+          </li>
+        </ul>
+      </div>
+      <div class="heading">
+        <div class="menu"><i class="fa-solid fa-bars"></i></div>
+        <h3>Dashboard</h3>
+      </div>
+      <div class="profile">
+        <div class="profile-pic">
+          <img
+            src="/assets/images/Blank Profile Picture.png"
+            alt="Profile Picture"
+          />
+        </div>
+        <div class="dropdown-menu">
+          <div class="Profile-name"></div>
+          <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <p class="popup-option" id="popupUsername"></p>
+            <div class="popup-option">My Profile</div>
+            <div class="popup-option">Settings</div>
+            <div class="popup-option" id="popup-logout">Logout</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <main>
+      <!-- WELCOME BANNER -->
+      <div class="welcome-banner">
+        <div class="welcome-text">
+          <h2 id="welcomeMsg">Good morning!</h2>
+          <p>Here's what's happening with your account today.</p>
+        </div>
+        <button class="welcome-btn">View full report</button>
+      </div>
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">
+            <i class="fa-solid fa-users"></i> Total Users
+          </div>
+          <div class="stat-value">3,842</div>
+          <div class="stat-change up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +12% this week
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">
+            <i class="fa-solid fa-chart-bar"></i> Page Views
+          </div>
+          <div class="stat-value">18.6k</div>
+          <div class="stat-change up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +8% this week
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">
+            <i class="fa-solid fa-cart-shopping"></i> Orders
+          </div>
+          <div class="stat-value">241</div>
+          <div class="stat-change down">
+            <i class="fa-solid fa-arrow-trend-down"></i> −3% this week
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">
+            <i class="fa-solid fa-coins"></i> Revenue
+          </div>
+          <div class="stat-value">$9,210</div>
+          <div class="stat-change up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +21% this week
+          </div>
+        </div>
+      </div>
+
+      <!-- LOWER SECTION -->
+      <div class="lower-grid">
+        <!-- RECENT ACTIVITY -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Activity</span>
+            <span class="card-link">See all</span>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon ic-purple">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <div class="activity-body">
+              <div class="activity-title">New user signed up</div>
+              <div class="activity-time">2 minutes ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon ic-teal">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="activity-body">
+              <div class="activity-title">Order #1042 completed</div>
+              <div class="activity-time">18 minutes ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon ic-amber">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="activity-body">
+              <div class="activity-title">Server load spike detected</div>
+              <div class="activity-time">1 hour ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon ic-pink">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div class="activity-body">
+              <div class="activity-title">Profile settings updated</div>
+              <div class="activity-time">3 hours ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-col">
+          <!-- TASKS -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">My Tasks</span>
+              <span class="card-link">Add task</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check done">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="task-label done">Review design specs</span>
+              <span class="task-badge badge-teal">Done</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check"></div>
+              <span class="task-label">Update user permissions</span>
+              <span class="task-badge badge-purple">High</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check"></div>
+              <span class="task-label">Send monthly report</span>
+              <span class="task-badge badge-pink">Due today</span>
+            </div>
+          </div>
+
+          <!-- TRAFFIC SOURCES -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Traffic Sources</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Organic</span>
+              <div class="bar-track">
+                <div
+                  class="bar-fill"
+                  style="width: 72%; background: #be29ec"
+                ></div>
+              </div>
+              <span class="bar-pct">72%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Direct</span>
+              <div class="bar-track">
+                <div
+                  class="bar-fill"
+                  style="width: 51%; background: #8a2be2"
+                ></div>
+              </div>
+              <span class="bar-pct">51%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Referral</span>
+              <div class="bar-track">
+                <div
+                  class="bar-fill"
+                  style="width: 34%; background: #fad0c4"
+                ></div>
+              </div>
+              <span class="bar-pct">34%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Social</span>
+              <div class="bar-track">
+                <div
+                  class="bar-fill"
+                  style="width: 19%; background: #ffd1ff"
+                ></div>
+              </div>
+              <span class="bar-pct">19%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="dashboard-home.js"></script>
+  </body>
+</html>

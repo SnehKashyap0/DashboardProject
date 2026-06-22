@@ -95,6 +95,46 @@ body {
   left: 0;
 }
 
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: scale(1.03);
+}
+
+.sidebar ul li.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+  font-weight: 600;
+}
+
+/* Thin divider line between nav groups */
+.sidebar .divider-item {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 8px 0;
+  padding: 0;
+  cursor: default;
+}
+
 /* Dark overlay shown behind sidebar and dropdown when open */
 .overlay {
   position: fixed;
@@ -109,30 +149,6 @@ body {
 .overlay.active {
   opacity: 1;
   visibility: visible;
-}
-
-/* Sidebar navigation items */
-.sidebar ul li {
-  list-style: none;
-}
-
-.sidebar ul li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.sidebar ul li:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.1);
-}
-
-.sidebar li i {
-  font-size: 1.1rem;
 }
 
 /* === PROFILE DROPDOWN (top-right) === */

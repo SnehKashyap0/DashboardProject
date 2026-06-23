@@ -11,6 +11,7 @@ let popupLogout = document.querySelector("#popup-logout");
 let menu = document.querySelector(".menu");
 let sidebar = document.querySelector(".sidebar");
 let overlay = document.querySelector(".overlay");
+
 // =============================================
 // LOAD USER FROM LOCALSTORAGE
 // =============================================

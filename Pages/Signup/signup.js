@@ -201,7 +201,7 @@ btn.addEventListener("click", () => {
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("currentUser", JSON.stringify(user));
 
-        window.location.href = "/Pages/Profile/profile.html";
+        window.location.href = "../Dashboard Home/dashboard-home.html";
         form.reset();
       }
     }

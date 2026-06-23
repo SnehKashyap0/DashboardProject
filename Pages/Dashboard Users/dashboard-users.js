@@ -60,7 +60,6 @@ menu.addEventListener("click", () => {
 
 overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
-  dropdownContent.classList.remove("active");
   overlay.classList.remove("active");
 });
 

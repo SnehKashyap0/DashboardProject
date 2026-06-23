@@ -15,6 +15,7 @@ body {
   align-items: center;
   background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .container {

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Times New Roman", Times, serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -16,11 +16,10 @@ body {
   font-weight: 700;
   text-align: center;
   margin-bottom: 24px;
-
   background: linear-gradient(100deg, #8a2be2, #ff4fd8);
-  background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .page-header::after {
@@ -81,68 +80,6 @@ main {
   padding: 28px 24px;
 }
 
-.page-header {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 24px;
-
-  background: linear-gradient(100deg, #8a2be2, #ff4fd8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.page-header::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 4px;
-  margin: 10px auto 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #8a2be2, #ff4fd8);
-}
-
-.table-wrap {
-  background: #fff;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 14px;
-  overflow-x: auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-thead {
-  background: linear-gradient(90deg, #8a2be2, #be29ec);
-}
-
-thead th {
-  color: white;
-  padding: 18px;
-  text-align: left;
-}
-
-tbody td {
-  padding: 18px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-tbody tr:hover {
-  background: #faf5ff;
-}
-
-.status-active {
-  color: #16a34a;
-  font-weight: 600;
-}
-
-.status-blocked {
-  color: #dc2626;
-  font-weight: 600;
-}
 /* =========================
    RESPONSIVE
 ========================= */

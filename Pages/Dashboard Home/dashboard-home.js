@@ -51,6 +51,12 @@ menu.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
+  setTimeout(() => {
+    footerItem.forEach((item) => {
+      item.classList.remove("active");
+    });
+    document.querySelector(".footer-home").classList.add("active");
+  }, 50);
 });
 
 // =============================================
@@ -79,14 +85,14 @@ document.querySelector(".profile-link").addEventListener("click", () => {
 // FOOTER
 // =============================================
 
-footerItem.addEventListener("click", () => {
-  footerItem.forEach((item), () => {
-    item.addEventListener("click", () => {
-      footerItem.forEach((i), () => {
-        i.classList.remove("active");
-      });
-      item.classList.add("active");
+footerItem.forEach((item) => {
+  item.addEventListener("click", () => {
+    footerItem.forEach((i) => {
+      i.classList.remove("active");
     });
+    item.classList.add("active");
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
   });
 });
 

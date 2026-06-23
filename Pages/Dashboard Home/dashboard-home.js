@@ -11,6 +11,7 @@ let popupLogout = document.querySelector("#popup-logout");
 let menu = document.querySelector(".menu");
 let sidebar = document.querySelector(".sidebar");
 let overlay = document.querySelector(".overlay");
+let footerItem = document.querySelectorAll(".footer-item");
 
 // =============================================
 // LOAD USER FROM LOCALSTORAGE
@@ -72,6 +73,21 @@ overlay.addEventListener("click", () => {
 
 document.querySelector(".profile-link").addEventListener("click", () => {
   window.location.href = "/pages/profile/profile.html";
+});
+
+// =============================================
+// FOOTER
+// =============================================
+
+footerItem.addEventListener("click", () => {
+  footerItem.forEach((item), () => {
+    item.addEventListener("click", () => {
+      footerItem.forEach((i), () => {
+        i.classList.remove("active");
+      });
+      item.classList.add("active");
+    });
+  });
 });
 
 // =============================================

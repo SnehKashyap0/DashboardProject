@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="dashboard-users.css" />
+    <link rel="stylesheet" href="../Dashboard Home/dashboard-home.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+      <div class="sidebar">
+        <ul>
+          <li class="home-link"><i class="fa-solid fa-house"></i> Home</li>
+          <li class="analytics-link">
+            <i class="fa-solid fa-chart-bar"></i> Analytics
+          </li>
+          <li class="users-link active">
+            <i class="fa-solid fa-users"></i> Users
+          </li>
+          <li class="reports-link">
+            <i class="fa-solid fa-file-lines"></i> Reports
+          </li>
+
+          <li class="divider-item"></li>
+
+          <li class="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+          <li class="settings-link">
+            <i class="fa-solid fa-gear"></i> Settings
+          </li>
+          <li class="help-link">
+            <i class="fa-solid fa-circle-question"></i> Help
+          </li>
+        </ul>
+      </div>
+
+      <div class="heading">
+        <div class="menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <h3>Users</h3>
+      </div>
+
+      <div class="profile">
+        <div class="profile-pic">
+          <img
+            src="/assets/images/Blank Profile Picture.png"
+            alt="Profile Picture"
+          />
+        </div>
+
+        <div class="dropdown-menu">
+          <div class="Profile-name"></div>
+          <i class="fa-solid fa-angle-down"></i>
+
+          <div class="dropdown-content">
+            <p class="popup-option" id="popupUsername"></p>
+            <div class="popup-option" id="popupProfile">My Profile</div>
+            <div class="popup-option">Settings</div>
+            <div class="popup-option" id="popup-logout">Logout</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="page-header">Users Information</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>E-mail</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody class="table-body"></tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  <script src="dashboard-users.js"></script>
+</html>

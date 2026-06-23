@@ -4,7 +4,6 @@
 
 let profileName = document.querySelector(".Profile-name");
 let popupUsername = document.querySelector("#popupUsername");
-let welcomeMsg = document.querySelector("#welcomeMsg");
 let dropdownMenu = document.querySelector(".dropdown-menu");
 let dropdownContent = document.querySelector(".dropdown-content");
 let popupLogout = document.querySelector("#popup-logout");
@@ -12,35 +11,46 @@ let menu = document.querySelector(".menu");
 let sidebar = document.querySelector(".sidebar");
 let overlay = document.querySelector(".overlay");
 let footerItem = document.querySelectorAll(".footer-item");
+let tbody = document.querySelector(".table-body");
 
 // =============================================
-// LOAD USER FROM LOCALSTORAGE
+// CHECK LOGIN
 // =============================================
 
-let user = JSON.parse(localStorage.getItem("currentUser"));
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-// If no user is logged in, redirect to login
-if (!user) {
+if (!currentUser) {
   window.location.href = "/pages/login/login.html";
 }
 
 // =============================================
-// POPULATE USER INFO
+// USER INFO
 // =============================================
 
-// Navbar name and dropdown username
-profileName.innerText = user.fullname;
-popupUsername.innerText = "@" + user.username;
-
-// Time-based greeting in the welcome banner
-let hour = new Date().getHours();
-let greeting =
-  hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
-
-welcomeMsg.innerText = greeting + ", " + user.fullname + "!";
+profileName.innerText = currentUser.fullname;
+popupUsername.innerText = "@" + currentUser.username;
 
 // =============================================
-// SIDEBAR (HAMBURGER MENU)
+// LOAD USERS TABLE
+// =============================================
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+tbody.innerHTML = users
+  .map(
+    (u) => `
+      <tr>
+        <td>${u.fullname}</td>
+        <td>${u.username}</td>
+        <td>${u.email}</td>
+        <td>${u.status || "Active"}</td>
+      </tr>
+    `,
+  )
+  .join("");
+
+// =============================================
+// SIDEBAR
 // =============================================
 
 menu.addEventListener("click", () => {
@@ -50,31 +60,21 @@ menu.addEventListener("click", () => {
 
 overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-  setTimeout(() => {
-    footerItem.forEach((item) => {
-      item.classList.remove("active");
-    });
-    document.querySelector(".footer-home").classList.add("active");
-  }, 50);
-});
-
-// =============================================
-// PROFILE DROPDOWN
-// =============================================
-
-dropdownMenu.addEventListener("click", () => {
-  dropdownContent.classList.toggle("active");
-  overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", () => {
   dropdownContent.classList.remove("active");
   overlay.classList.remove("active");
 });
 
 // =============================================
-// PROFILE DROPDOWN OPTIONS
+// DROPDOWN
+// =============================================
+
+dropdownMenu.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdownContent.classList.toggle("active");
+  overlay.classList.toggle("active");
+});
+// =============================================
+// DROPDOWN OPTIONS
 // =============================================
 
 document.querySelector("#popupProfile").addEventListener("click", () => {
@@ -82,14 +82,15 @@ document.querySelector("#popupProfile").addEventListener("click", () => {
 });
 
 // =============================================
-// SIDEBAR NAV LINKS
+// NAVIGATION LINKS
 // =============================================
 
-document.querySelector(".profile-link").addEventListener("click", () => {
-  window.location.href = "/pages/profile/profile.html";
+document.querySelector(".home-link")?.addEventListener("click", () => {
+  window.location.href = "/pages/dashboard home/dashboard-home.html";
 });
-document.querySelector(".users-link").addEventListener("click", () => {
-  window.location.href = "/pages/dashboard users/dashboard-users.html";
+
+document.querySelector(".profile-link")?.addEventListener("click", () => {
+  window.location.href = "/pages/profile/profile.html";
 });
 
 // =============================================
@@ -98,12 +99,8 @@ document.querySelector(".users-link").addEventListener("click", () => {
 
 footerItem.forEach((item) => {
   item.addEventListener("click", () => {
-    footerItem.forEach((i) => {
-      i.classList.remove("active");
-    });
+    footerItem.forEach((i) => i.classList.remove("active"));
     item.classList.add("active");
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
   });
 });
 

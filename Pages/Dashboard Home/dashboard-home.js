@@ -102,9 +102,16 @@ footerItem.forEach((item) => {
       i.classList.remove("active");
     });
     item.classList.add("active");
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
   });
+});
+document.querySelector(".footer-profile").addEventListener("click", () => {
+  window.location.href = "/pages/profile/profile.html";
+});
+document.querySelector(".footer-users").addEventListener("click", () => {
+  window.location.href = "/pages/Dashboard Users/dashboard-users.html";
+});
+document.querySelector(".footer-home").addEventListener("click", () => {
+  window.location.href = "/pages/Dashboard Home/dashboard-home.html";
 });
 
 // =============================================

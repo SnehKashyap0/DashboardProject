@@ -18,7 +18,7 @@ body {
   margin-bottom: 24px;
 
   background: linear-gradient(100deg, #8a2be2, #ff4fd8);
-
+  background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -177,13 +177,12 @@ tbody tr:hover {
   .navbar {
     padding: 10px 14px;
   }
+  .Profile-name {
+    font-size: 0.85rem;
+  }
 
   .heading h3 {
     font-size: 1.1rem;
-  }
-
-  .Profile-name {
-    display: none;
   }
 
   main {

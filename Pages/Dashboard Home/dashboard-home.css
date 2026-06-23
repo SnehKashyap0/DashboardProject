@@ -581,7 +581,16 @@ main {
   .navbar {
     padding: 10px 14px;
   }
-
+  .profile {
+    gap: 4px;
+  }
+  .Profile-name {
+    font-size: 0.85rem;
+  }
+  .profile-pic img {
+    height: 30px;
+    width: 30px;
+  }
   .heading h3 {
     font-size: 1.1rem;
   }

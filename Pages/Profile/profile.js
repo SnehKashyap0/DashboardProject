@@ -21,6 +21,8 @@ let sidebar = document.querySelector(".sidebar"); // Slide-in sidebar panel
 let overlay = document.querySelector(".overlay"); // Dark background overlay
 let home = document.querySelector(".home-link"); // Open Dashboard Home
 let userinfo = document.querySelector(".users-link"); // Open Dashboard Users
+let footerItem = document.querySelectorAll(".footer-item"); //Get Footer Items
+
 
 // =============================================
 // LOAD CURRENT USER FROM LOCAL STORAGE
@@ -171,6 +173,28 @@ dropdownMenu.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
   dropdownContent.classList.remove("active");
   overlay.classList.remove("active");
+});
+
+// =============================================
+// FOOTER
+// =============================================
+
+footerItem.forEach((item) => {
+  item.addEventListener("click", () => {
+    footerItem.forEach((i) => {
+      i.classList.remove("active");
+    });
+    item.classList.add("active");
+  });
+});
+document.querySelector(".footer-profile").addEventListener("click", () => {
+  window.location.href = "/pages/profile/profile.html";
+});
+document.querySelector(".footer-users").addEventListener("click", () => {
+  window.location.href = "/pages/Dashboard Users/dashboard-users.html";
+});
+document.querySelector(".footer-home").addEventListener("click", () => {
+  window.location.href = "/pages/Dashboard Home/dashboard-home.html";
 });
 
 // =============================================

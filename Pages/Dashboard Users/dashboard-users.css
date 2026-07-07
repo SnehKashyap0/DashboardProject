@@ -1,3 +1,7 @@
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,42 +15,50 @@ body {
   overflow-x: hidden;
 }
 
+/* ==========================================================================
+   PAGE HEADER
+   ========================================================================== */
+
 .page-header {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 24px;
+
+  /* Gradient text effect */
   background: linear-gradient(100deg, #8a2be2, #ff4fd8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Small gradient underline below the heading */
 .page-header::after {
   content: "";
   display: block;
   width: 90px;
   height: 4px;
   margin: 10px auto 0;
-
   border-radius: 999px;
-
   background: linear-gradient(90deg, #8a2be2, #ff4fd8);
 }
+
+/* ==========================================================================
+   SEARCH BOX
+   ========================================================================== */
+
 .search-box {
   width: 100%;
   max-width: 380px;
+  margin: 0 auto 20px;
+  padding: 10px 15px;
 
   display: flex;
   align-items: center;
 
-  margin: 0 auto 20px;
-
   background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 10px 15px;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -62,11 +74,16 @@ body {
   font-size: 15px;
   background: transparent;
 }
+
+/* ==========================================================================
+   TABLE
+   ========================================================================== */
+
 .table-wrap {
   background: white;
   border-radius: 14px;
-  overflow-x: auto;
   border: 1.5px solid #e0e0e0;
+  overflow-x: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -96,6 +113,7 @@ tbody tr:hover {
   background: #faf5ff;
 }
 
+/* Status text colors */
 .status-active {
   color: #16a34a;
   font-weight: 600;
@@ -105,6 +123,11 @@ tbody tr:hover {
   color: #dc2626;
   font-weight: 600;
 }
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -147,20 +170,29 @@ tbody tr:hover {
 
 .page-number {
   min-width: 90px;
+  padding: 10px 18px;
   text-align: center;
   font-size: 16px;
   font-weight: 700;
   color: #8a2be2;
 
-  padding: 10px 18px;
-  border-radius: 8px;
-
   background: #f3e8ff;
   border: 1px solid #d8b4fe;
+  border-radius: 8px;
 }
+
+/* ==========================================================================
+   MAIN LAYOUT
+   ========================================================================== */
+
 main {
   padding: 28px 24px;
 }
+
+/* ==========================================================================
+   ACTION BUTTONS (Profile / Update / Delete)
+   ========================================================================== */
+
 .action-btns {
   display: flex;
   justify-content: center;
@@ -204,17 +236,22 @@ main {
 .delete-btn:hover {
   background-color: #b91c1c;
 }
+
+/* ==========================================================================
+   EDIT MODAL
+   ========================================================================== */
+
 .edit-modal {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  /* Hidden by default, shown via .active */
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .edit-modal.active {
@@ -280,19 +317,21 @@ main {
   color: white;
 }
 
+/* ==========================================================================
+   PROFILE MODAL
+   ========================================================================== */
+
 .profile-modal {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 
+  /* Hidden by default, shown via .active */
   display: none;
   justify-content: center;
   align-items: center;
 
-  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .profile-modal.active {
@@ -308,13 +347,17 @@ main {
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
 .profile-body {
   max-height: 80vh;
   overflow-y: auto;
 }
+
+/* Hide scrollbar for the profile body (Webkit browsers) */
 .profile-body::-webkit-scrollbar {
   display: none;
 }
+
 .profile-header {
   display: flex;
   flex-direction: column;
@@ -325,14 +368,11 @@ main {
 .profile-header img {
   width: 110px;
   height: 110px;
-
-  border-radius: 50%;
-
-  object-fit: cover;
-
   margin-bottom: 12px;
 
+  border-radius: 50%;
   border: 4px solid #8a2be2;
+  object-fit: cover;
 }
 
 .profile-header h2 {
@@ -346,69 +386,53 @@ main {
 .profile-details {
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 }
 
 .detail-row {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   padding: 10px;
-
   border-bottom: 1px solid #eee;
 }
 
 .detail-row span {
   font-weight: bold;
-
   color: #555;
 }
 
 .close-profile-btn {
   width: 100%;
-
   margin-top: 25px;
-
   padding: 12px;
-
   border: none;
-
   border-radius: 8px;
-
   cursor: pointer;
-
   color: white;
-
   background: #8a2be2;
-
   transition: 0.3s;
 }
 
 .close-profile-btn:hover {
   background: #6f20c2;
 }
-/* ===========================
+
+/* ==========================================================================
    DELETE MODAL
-=========================== */
+   ========================================================================== */
 
 .delete-modal {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 1000;
 
+  /* Hidden by default, shown via .active */
   display: none;
   justify-content: center;
   align-items: center;
 
   background: rgba(0, 0, 0, 0.5);
-
-  z-index: 1000;
 }
 
 .delete-modal.active {
@@ -418,21 +442,15 @@ main {
 .delete-modal-content {
   width: 380px;
   background: #fff;
-
   padding: 30px;
-
   border-radius: 14px;
-
   text-align: center;
-
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .delete-icon {
   font-size: 55px;
-
   color: #e63946;
-
   margin-bottom: 18px;
 }
 
@@ -442,32 +460,23 @@ main {
 
 .delete-modal-content p {
   color: #666;
-
   line-height: 1.5;
-
   margin-bottom: 25px;
 }
 
 .delete-buttons {
   display: flex;
-
   gap: 15px;
 }
 
 .cancel-delete-btn,
 .confirm-delete-btn {
   flex: 1;
-
   border: none;
-
   padding: 12px;
-
   border-radius: 8px;
-
   cursor: pointer;
-
   font-size: 15px;
-
   transition: 0.3s;
 }
 
@@ -481,17 +490,18 @@ main {
 
 .confirm-delete-btn {
   background: #dc2626;
-
   color: white;
 }
 
 .confirm-delete-btn:hover {
   background: #b91c1c;
 }
-/* =========================
-   RESPONSIVE
-========================= */
 
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Tablets and small laptops */
 @media (max-width: 768px) {
   .navbar {
     padding: 10px 16px;
@@ -516,6 +526,7 @@ main {
   table {
     min-width: 650px;
   }
+
   .modal-content,
   .profile-modal-content {
     width: 90%;
@@ -546,6 +557,7 @@ main {
   .close-profile-btn {
     width: 100%;
   }
+
   .delete-modal-content {
     width: 90%;
     max-width: 400px;
@@ -563,12 +575,29 @@ main {
   .delete-modal-content p {
     font-size: 15px;
   }
+  .pagination {
+    gap: 10px;
+  }
+
+  .pagination button {
+    min-width: 90px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .page-number {
+    min-width: 70px;
+    padding: 8px 14px;
+    font-size: 15px;
+  }
 }
 
+/* Mobile phones */
 @media (max-width: 480px) {
   .navbar {
     padding: 10px 14px;
   }
+
   .Profile-name {
     font-size: 0.85rem;
   }
@@ -598,6 +627,7 @@ main {
   table {
     min-width: 600px;
   }
+
   .action-btns {
     gap: 6px;
   }
@@ -608,6 +638,7 @@ main {
     padding: 6px 8px;
     font-size: 12px;
   }
+
   .modal-content,
   .profile-modal-content {
     position: absolute;
@@ -674,6 +705,7 @@ main {
     padding: 12px;
     font-size: 15px;
   }
+
   .delete-modal-content {
     width: 95%;
     max-width: 95%;
@@ -706,5 +738,22 @@ main {
     width: 100%;
     padding: 12px;
     font-size: 15px;
+  }
+  .pagination {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 18px 0 15px;
+  }
+
+  .pagination button {
+    min-width: 70px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .page-number {
+    min-width: 55px;
+    padding: 7px 10px;
+    font-size: 13px;
   }
 }

@@ -78,6 +78,7 @@
               <th>Username</th>
               <th>E-mail</th>
               <th>Status</th>
+              <th colspan="2">Action</th>
             </tr>
           </thead>
           <tbody class="table-body"></tbody>
@@ -108,6 +109,37 @@
         </div>
       </div>
     </footer>
+    <!-- Edit Modal -->
+    <div class="edit-modal" id="editModal">
+      <div class="modal-content">
+        <h2>Edit User</h2>
+
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" id="editFirstName" />
+        </div>
+
+        <div class="input-group">
+          <label>Last Name</label>
+          <input type="text" id="editLastName" />
+        </div>
+
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="editUsername" />
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="editEmail" />
+        </div>
+
+        <div class="modal-buttons">
+          <button class="cancel-btn">Cancel</button>
+          <button class="save-btn">Save</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="dashboard-users.js"></script>
 </html>

@@ -13,6 +13,7 @@ let sidebar = document.querySelector(".sidebar");
 let overlay = document.querySelector(".overlay");
 let footerItem = document.querySelectorAll(".footer-item");
 
+
 // =============================================
 // LOAD USER FROM LOCALSTORAGE
 // =============================================

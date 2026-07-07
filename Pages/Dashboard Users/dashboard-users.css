@@ -54,7 +54,7 @@ thead {
 thead th {
   color: white;
   padding: 18px;
-  text-align: left;
+  text-align: center;
 }
 
 tbody td {
@@ -79,7 +79,103 @@ tbody tr:hover {
 main {
   padding: 28px 24px;
 }
+.delete-btn,
+.update-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.update-btn {
+  background-color: blue;
+}
 
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+.update-btn:hover {
+  background-color: rgb(42, 42, 185);
+}
+
+.edit-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  width: 420px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #4b7bec;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.save-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ccc;
+}
+
+.save-btn {
+  background: #4b7bec;
+  color: white;
+}
 /* =========================
    RESPONSIVE
 ========================= */

@@ -12,6 +12,16 @@ let sidebar = document.querySelector(".sidebar");
 let overlay = document.querySelector(".overlay");
 let footerItem = document.querySelectorAll(".footer-item");
 let tbody = document.querySelector(".table-body");
+let editModal = document.querySelector(".edit-modal");
+let editFirstName = document.querySelector("#editFirstName");
+let editLastName = document.querySelector("#editLastName");
+let editUsername = document.querySelector("#editUsername");
+let editEmail = document.querySelector("#editEmail");
+let saveBtn = document.querySelector(".save-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+
+let userData = [];
+let selectedUserId = null;
 
 // =============================================
 // CHECK LOGIN
@@ -31,23 +41,114 @@ profileName.innerText = currentUser.fullname;
 popupUsername.innerText = "@" + currentUser.username;
 
 // =============================================
-// LOAD USERS TABLE
+// DELETE USER FROM API
 // =============================================
 
-let users = JSON.parse(localStorage.getItem("users")) || [];
+async function deleteUser(id) {
+  const response = await fetch(`https://dummyjson.com/users/${id}`, {
+    method: "DELETE",
+  });
+  userData = userData.filter((user) => {
+    console.log("Delete Clicked", id);
+    return user.id !== id;
+  });
+  renderUser();
+}
 
-tbody.innerHTML = users
-  .map(
-    (u) => `
+// =============================================
+// UPDATE USER FROM API
+// =============================================
+
+function updateUser(id) {
+  selectedUserId = id;
+  const user = userData.find((u) => {
+    return u.id === id;
+  });
+  editModal.classList.add("active");
+  editFirstName.value = user.firstName;
+  editLastName.value = user.lastName;
+  editEmail.value = user.email;
+  editUsername.value = user.username;
+}
+
+// =============================================
+// SAVE USER AFTER UPDATE
+// =============================================
+
+saveBtn.addEventListener("click", async () => {
+  console.log("Save Clicked");
+  let newFirstName = editFirstName.value;
+  let newLastName = editLastName.value;
+  let newEmail = editEmail.value;
+  let newUsername = editUsername.value;
+  const index = userData.findIndex((u) => {
+    return u.id === selectedUserId;
+  });
+  //Local Array Update
+  userData[index].firstName = newFirstName;
+  userData[index].lastName = newLastName;
+  userData[index].email = newEmail;
+  userData[index].username = newUsername;
+
+  // API Update
+  await fetch(`https://dummyjson.com/users/${selectedUserId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      firstName: newFirstName,
+      lastName: newLastName,
+      email: newEmail,
+      username: newUsername,
+    }),
+  });
+
+  renderUser();
+  console.log(userData);
+  editModal.classList.remove("active");
+});
+
+// =============================================
+// CANCEL UPDATE
+// =============================================
+
+cancelBtn.addEventListener("click", () => {
+  editModal.classList.remove("active");
+});
+
+// =============================================
+// RENDER USERS
+// =============================================
+
+function renderUser() {
+  tbody.innerHTML = userData
+    .map(
+      (u) => `
       <tr>
-        <td>${u.fullname}</td>
+        <td>${u.firstName} ${u.lastName}</td>
         <td>${u.username}</td>
         <td>${u.email}</td>
         <td>${u.status || "Active"}</td>
+        <td><button class="delete-btn" onclick="deleteUser(${u.id})">Delete</button></td>
+        <td><button class="update-btn" onclick="updateUser(${u.id})">Update</button></td>
       </tr>
     `,
-  )
-  .join("");
+    )
+    .join("");
+}
+
+// =============================================
+// LOAD USER FROM API
+// =============================================
+
+async function getUsers() {
+  const response = await fetch("https://dummyjson.com/users");
+  const data = await response.json();
+  userData = data.users;
+  renderUser();
+}
+getUsers();
 
 // =============================================
 // SIDEBAR

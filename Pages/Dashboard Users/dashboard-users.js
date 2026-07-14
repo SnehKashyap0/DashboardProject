@@ -51,6 +51,8 @@ const pageNumber = document.querySelector(".page-number");
 
 // Search
 const searchInput = document.querySelector(".search-input");
+const searchBox = document.querySelector(".search-box");
+const icon = document.querySelector("#searchIcon");
 
 // Delete Confirmation
 const deleteModal = document.querySelector("#deleteModal");
@@ -113,6 +115,13 @@ searchInput.addEventListener("input", (e) => {
   renderUser();
 });
 
+icon.addEventListener("click", () => {
+  searchInput.classList.toggle("active");
+  if (searchInput.classList.contains("active")) {
+    searchInput.focus();
+  }
+});
+
 // =============================================
 // LOGIN
 // =============================================
@@ -134,7 +143,7 @@ async function getUsers() {
   const response = await fetch("https://dummyjson.com/users");
 
   const data = await response.json();
-
+  console.log(data);
   userData = data.users;
 
   renderUser();
@@ -164,11 +173,21 @@ function renderUser() {
   const startIndex = (currentPage - 1) * usersPerPage;
   const endIndex = startIndex + usersPerPage;
 
+  const userCount = document.querySelector(".user-count");
+
+  const showingStart = filteredUsers.length === 0 ? 0 : startIndex + 1;
+  const showingEnd = Math.min(endIndex, filteredUsers.length);
+
+  userCount.innerHTML = `
+  Showing <span>${showingStart}-${showingEnd}</span> of <span>${filteredUsers.length}</span> users
+`;
+
   tbody.innerHTML = filteredUsers
     .slice(startIndex, endIndex)
     .map(
       (u) => `
 <tr>
+<td>${u.id}</td>
 <td>${u.firstName} ${u.lastName}</td>
 <td>${u.username}</td>
 <td>${u.email}</td>
@@ -194,8 +213,6 @@ function renderUser() {
 `,
     )
     .join("");
-
-  pageNumber.innerText = `Page ${currentPage} / ${totalPages || 1}`;
 
   prevBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalPages || totalPages === 0;

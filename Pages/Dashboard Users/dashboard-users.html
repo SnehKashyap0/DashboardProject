@@ -121,62 +121,71 @@
 
     <main>
       <!-- Page Header -->
+      <div class="header-search-container">
+        <div class="page-header">Users Information</div>
 
-      <div class="page-header">Users Information</div>
+        <!-- Search Box -->
 
-      <!-- Search Box -->
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by name or username..."
+          />
 
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search by name or username..."
-        />
+          <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+        </div>
       </div>
 
       <!-- Users Table -->
 
       <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
+        <div class="table-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Serial No.</th>
 
-              <th>Username</th>
+                <th>Name</th>
 
-              <th>E-mail</th>
+                <th>Username</th>
 
-              <th>Status</th>
+                <th>E-mail</th>
 
-              <th>Action</th>
-            </tr>
-          </thead>
+                <th>Status</th>
 
-          <!-- Users Render Here -->
+                <th>Action</th>
+              </tr>
+            </thead>
 
-          <tbody class="table-body"></tbody>
-        </table>
+            <!-- Users Render Here -->
+
+            <tbody class="table-body"></tbody>
+          </table>
+          <div class="table-footer">
+            <div class="footer-info">
+              <i class="fa-solid fa-users"></i>
+              <span class="user-count"> </span>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+              <button class="prev-btn">
+                <i class="fa-solid fa-angle-left"></i>
+
+                Previous
+              </button>
+
+              <button class="next-btn">
+                Next
+
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Pagination -->
-
-      <div class="pagination">
-        <button class="prev-btn">
-          <i class="fa-solid fa-angle-left"></i>
-
-          Previous
-        </button>
-
-        <span class="page-number"></span>
-
-        <button class="next-btn">
-          Next
-
-          <i class="fa-solid fa-angle-right"></i>
-        </button>
-      </div>
+      <span class="page-number"></span>
     </main>
     <!-- =============================================
        FOOTER

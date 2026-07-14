@@ -56,10 +56,12 @@ const icon = document.querySelector("#searchIcon");
 
 // Delete Confirmation
 const deleteModal = document.querySelector("#deleteModal");
-
 const cancelDeleteBtn = document.querySelector(".cancel-delete-btn");
-
 const confirmDeleteBtn = document.querySelector(".confirm-delete-btn");
+
+//Sorting
+const nameHeader = document.querySelector("#name-header");
+const sortIcon = document.querySelector("#sort-arrow");
 
 // =============================================
 // VARIABLES
@@ -74,6 +76,25 @@ let usersPerPage = 10;
 let searchText = "";
 
 let deleteUserId = null;
+
+let sortOrder = "asc";
+
+// =============================================
+// SOTING BASED ON NAMES
+// =============================================
+
+nameHeader.addEventListener("click", () => {
+  if (sortOrder === "asc") {
+    userData.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    sortIcon.className = "fa-solid fa-arrow-down-z-a";
+    sortOrder = "desc";
+  } else {
+    userData.sort((a, b) => b.firstName.localeCompare(a.firstName));
+    sortIcon.className = "fa-solid fa-arrow-up-a-z";
+    sortOrder = "asc";
+  }
+  renderUser();
+});
 
 // =============================================
 // PAGINATION
@@ -143,7 +164,6 @@ async function getUsers() {
   const response = await fetch("https://dummyjson.com/users");
 
   const data = await response.json();
-  console.log(data);
   userData = data.users;
 
   renderUser();
@@ -185,9 +205,9 @@ function renderUser() {
   tbody.innerHTML = filteredUsers
     .slice(startIndex, endIndex)
     .map(
-      (u) => `
+      (u, index) => `
 <tr>
-<td>${u.id}</td>
+<td>${startIndex + index + 1}</td>
 <td>${u.firstName} ${u.lastName}</td>
 <td>${u.username}</td>
 <td>${u.email}</td>
